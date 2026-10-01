@@ -5,7 +5,7 @@ import "./globals.scss";
 export const metadata: Metadata = {
   title: "Fireplace — Ambient Fireplace",
   description:
-    "Una chimenea virtual realista para dejar encendida de fondo: fuego simulado en tiempo real y el crepitar de la leña.",
+    "A realistic virtual fireplace to leave on in the background: real-time simulated fire and the crackling of logs.",
   applicationName: "Fireplace",
   appleWebApp: {
     capable: true,
@@ -27,7 +27,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang="es">
+    <html lang="en">
       <body>{children}</body>
     </html>
   );

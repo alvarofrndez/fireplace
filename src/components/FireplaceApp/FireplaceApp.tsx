@@ -87,7 +87,7 @@ export default function FireplaceApp() {
         renderer.renderStill();
       }
     } catch (error) {
-      console.warn("[Fireplace] No se pudo iniciar WebGL:", error);
+      console.warn("[Fireplace] Cannot inizialtes WebGL:", error);
       setWebglFailed(true);
     }
     rendererRef.current = renderer;
@@ -305,7 +305,7 @@ export default function FireplaceApp() {
       {webglFailed && <div className={styles.fallback} data-lit={running || undefined} aria-hidden="true" />}
 
       <p className={styles.paused} data-visible={(running && !playing) || undefined} aria-live="polite">
-        {running && !playing ? "En pausa" : ""}
+        {running && !playing ? "On pause" : ""}
       </p>
 
       {running && (
@@ -331,8 +331,8 @@ export default function FireplaceApp() {
           className={styles.restore}
           data-visible={restoreVisible || undefined}
           onClick={showControls}
-          aria-label="Mostrar controles"
-          title="Mostrar controles (H)"
+          aria-label="Show controls"
+          title="Show controls (H)"
           tabIndex={restoreVisible ? 0 : -1}
         >
           <SlidersIcon />

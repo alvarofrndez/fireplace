@@ -14,10 +14,10 @@ export function IntroScreen({ leaving, onStart }: IntroScreenProps) {
         <h1 className={styles.title}>Fireplace</h1>
         <button type="button" className={styles.start} onClick={onStart} disabled={leaving} autoFocus>
           <FlameIcon className={styles.flame} />
-          <span>Enciende la chimenea</span>
+          <span>Light the fireplace</span>
         </button>
       </div>
-      <p className={styles.hint}>Mejor con sonido</p>
+      <p className={styles.hint}>Better with sound</p>
     </section>
   );
 }

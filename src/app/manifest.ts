@@ -4,7 +4,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "Fireplace — Ambient Fireplace",
     short_name: "Fireplace",
-    description: "Chimenea virtual realista con sonido ambiente para dejar encendida de fondo.",
+    description: "Realistic virtual fireplace with ambient sound to leave on in the background.",
     start_url: "/",
     display: "fullscreen",
     orientation: "any",

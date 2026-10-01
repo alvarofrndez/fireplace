@@ -48,7 +48,7 @@ export function ControlBar({
       className={styles.bar}
       data-visible={visible || undefined}
       role="toolbar"
-      aria-label="Controles de la chimenea"
+      aria-label="Fireplace Controls"
       aria-hidden={!visible || undefined}
       onPointerEnter={() => onHoldChange(true)}
       onPointerLeave={() => onHoldChange(false)}
@@ -61,8 +61,8 @@ export function ControlBar({
         type="button"
         className={styles.button}
         onClick={onTogglePlay}
-        aria-label={playing ? "Pausar" : "Reproducir"}
-        title={playing ? "Pausar (espacio)" : "Reproducir (espacio)"}
+        aria-label={playing ? "Pause" : "Play"}
+        title={playing ? "Pause (space)" : "Play (space)"}
         tabIndex={visible ? 0 : -1}
       >
         {playing ? <PauseIcon /> : <PlayIcon />}
@@ -75,9 +75,9 @@ export function ControlBar({
           type="button"
           className={styles.button}
           onClick={onToggleMute}
-          aria-label={silent ? "Activar sonido" : "Silenciar"}
+          aria-label={silent ? "Turn on sound" : "Mute"}
           aria-pressed={silent}
-          title={silent ? "Activar sonido (M)" : "Silenciar (M)"}
+          title={silent ? "Turn on sound (M)" : "Mute (M)"}
           tabIndex={visible ? 0 : -1}
         >
           <VolumeIcon level={shownLevel} />
@@ -91,8 +91,8 @@ export function ControlBar({
           value={silent ? 0 : percent}
           onChange={(event) => onVolumeChange(Number(event.currentTarget.value) / 100)}
           onPointerDown={() => onHoldChange(true)}
-          aria-label="Volumen"
-          aria-valuetext={silent ? "Silenciado" : `${percent} %`}
+          aria-label="Volume"
+          aria-valuetext={silent ? "Muted" : `${percent} %`}
           tabIndex={visible ? 0 : -1}
           style={{ "--fill": `${silent ? 0 : percent}%` } as CSSProperties}
         />
@@ -108,8 +108,8 @@ export function ControlBar({
           type="button"
           className={styles.button}
           onClick={onToggleFullscreen}
-          aria-label={isFullscreen ? "Salir de pantalla completa" : "Pantalla completa"}
-          title={isFullscreen ? "Salir de pantalla completa (F)" : "Pantalla completa (F)"}
+          aria-label={isFullscreen ? "Exit full screen" : "Full screen"}
+          title={isFullscreen ? "Exit full screen (F)" : "Full screen (F)"}
           tabIndex={visible ? 0 : -1}
         >
           {isFullscreen ? <ExitFullscreenIcon /> : <FullscreenIcon />}
@@ -119,8 +119,8 @@ export function ControlBar({
         type="button"
         className={styles.button}
         onClick={onHide}
-        aria-label="Ocultar controles"
-        title="Ocultar controles (H)"
+        aria-label="Hide controls"
+        title="Hide controls (H)"
         tabIndex={visible ? 0 : -1}
       >
         <HideIcon />
