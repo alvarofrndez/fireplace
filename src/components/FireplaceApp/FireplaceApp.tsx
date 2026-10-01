@@ -207,7 +207,7 @@ export default function FireplaceApp() {
   const hideControls = useCallback(() => {
     updatePrefs({ controlsHidden: true });
     setHold(false);
-    showToast("Controles ocultos · pulsa H o el icono de la esquina para mostrarlos");
+    showToast("Hidden controls · press H or the icon in the corner to show them");
   }, [updatePrefs, showToast]);
 
   const showControls = useCallback(() => {
