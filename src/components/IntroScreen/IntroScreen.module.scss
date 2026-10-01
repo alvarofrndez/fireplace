@@ -1,0 +1,141 @@
+@use "../../styles/tokens" as *;
+
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background:
+    radial-gradient(ellipse 70% 55% at 50% 62%, rgba(8, 3, 1, 0.35) 0%, rgba(0, 0, 0, 0.82) 62%, #000 100%),
+    rgba(0, 0, 0, 0.35);
+  transition:
+    opacity 1.6s $ease-in-out,
+    visibility 0s linear 0s;
+
+  &[data-leaving] {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+      opacity 1.6s $ease-in-out,
+      visibility 0s linear 1.6s;
+
+    .content {
+      transform: translateY(-6px) scale(0.985);
+      filter: blur(3px);
+    }
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(2rem, 5vh, 3.25rem);
+  transition:
+    transform 1.6s $ease-out,
+    filter 1.6s $ease-out;
+}
+
+.title {
+  margin: 0;
+  font-weight: 200;
+  font-size: clamp(2.75rem, 8.5vw, 5.75rem);
+  line-height: 1;
+  letter-spacing: 0.14em;
+  text-indent: 0.14em; // keeps the tracked word optically centered
+  color: $color-text;
+  text-shadow:
+    0 0 28px rgba(255, 150, 70, 0.18),
+    0 0 90px rgba(255, 110, 30, 0.12);
+  opacity: 0;
+  animation: rise 1.6s $ease-out 0.15s forwards;
+}
+
+.start {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.95rem 1.9rem 0.95rem 1.55rem;
+  border: 1px solid rgba(255, 196, 140, 0.26);
+  border-radius: 999px;
+  background: rgba(255, 140, 60, 0.05);
+  color: rgba(255, 238, 220, 0.9);
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  opacity: 0;
+  animation: rise 1.6s $ease-out 0.55s forwards;
+  transition:
+    border-color 0.4s $ease-out,
+    background-color 0.4s $ease-out,
+    box-shadow 0.6s $ease-out,
+    color 0.4s $ease-out;
+  @include focus-ring;
+
+  &:hover,
+  &:focus-visible {
+    border-color: rgba(255, 196, 140, 0.55);
+    background: rgba(255, 140, 60, 0.11);
+    color: #fff4e8;
+    box-shadow:
+      0 0 32px rgba(255, 120, 40, 0.22),
+      inset 0 0 18px rgba(255, 140, 60, 0.08);
+  }
+
+  &:disabled {
+    cursor: default;
+  }
+}
+
+.flame {
+  width: 1.15rem;
+  height: 1.15rem;
+  color: $color-amber;
+  filter: drop-shadow(0 0 6px rgba(255, 140, 60, 0.55));
+}
+
+.hint {
+  position: absolute;
+  bottom: calc(2rem + #{$safe-bottom});
+  margin: 0;
+  font-size: 0.7rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: $color-text-faint;
+  opacity: 0;
+  animation: fade-in 2s $ease-out 1.2s forwards;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  to {
+    opacity: 0.85;
+  }
+}
+
+@include reduced-motion {
+  .title,
+  .start,
+  .hint {
+    animation-duration: 0.01s;
+    animation-delay: 0s;
+  }
+}

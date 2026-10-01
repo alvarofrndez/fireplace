@@ -1,0 +1,35 @@
+// Design tokens: dark, warm and quiet.
+
+$font-sans: "Segoe UI Variable Display", "Segoe UI Variable Text", -apple-system, BlinkMacSystemFont,
+  "SF Pro Display", "Helvetica Neue", "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
+
+$color-background: #000;
+$color-text: #f5eadf;
+$color-text-soft: rgba(245, 234, 223, 0.72);
+$color-text-faint: rgba(245, 234, 223, 0.42);
+$color-ember: #ff8a3d;
+$color-amber: #ffb466;
+$color-gold: #ffd9a3;
+$color-glass: rgba(16, 10, 7, 0.46);
+$color-line: rgba(255, 214, 176, 0.12);
+$color-hover: rgba(255, 236, 214, 0.08);
+$color-focus: rgba(255, 186, 120, 0.7);
+
+$ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+$ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+$safe-bottom: env(safe-area-inset-bottom, 0px);
+$safe-right: env(safe-area-inset-right, 0px);
+
+@mixin focus-ring {
+  &:focus-visible {
+    outline: 2px solid $color-focus;
+    outline-offset: 2px;
+  }
+}
+
+@mixin reduced-motion {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}
